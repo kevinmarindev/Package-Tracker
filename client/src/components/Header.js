@@ -1,41 +1,41 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
-import NavDropdown from 'react-bootstrap/NavDropdown'
 import Container from 'react-bootstrap/Container'
-import { FaBox } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
+
 
 const Header = () => {
     return (
         <Navbar bg="light" expand="md" >
-            <Container >
-                <Navbar.Brand href="#home" className=' my-3' style={spacing}>Track them all<FaBox className='ms-2'/>
-                </Navbar.Brand>
-
+            <Container fluid>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto" style={ nav }>
-                        <Nav.Link href="#home" >Login</Nav.Link>
-                        <Nav.Link href="#link" >Register</Nav.Link>
+                    <Nav style={ nav }>
+                        <Nav.Link>
+                            <Link style={shadow} to='/login'>Sign in</Link>
+                        </Nav.Link>
+                        <Nav.Link>
+                            <Link style={shadow} to='/register'>Register</Link>
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
         </Navbar>   
     )
 }
-const spacing = {
-    width: '50%',
-    marginRight: '20%'
-    
-}
+
+//Styling 
 
 const nav = {
-    width: '50%',
+    width: '100%',
     display: 'flex',
-    
+    margin: '0',
     flexWrap: 'nowrap',
     justifyContent: 'space-evenly',
-    
-    
+}
+
+const shadow={
+    textShadow: '0 0 2px RGB(175 22 249)'
 }
 
 
