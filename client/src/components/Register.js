@@ -7,7 +7,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const Register = ({ pullUserToAppCompo }) => {
+const Register = ({ pullUserToAppCompo, userLoggedIn }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -35,7 +35,7 @@ const Register = ({ pullUserToAppCompo }) => {
             setErrors((prev) => res.data.errors)
             console.log(errs)
         } 
-        
+
         if(res.data.user){
             // setUser((prev)=> res.data.user)
             user = res.data.user
@@ -59,7 +59,7 @@ const Register = ({ pullUserToAppCompo }) => {
     //     pullUser(user)
     //     navigate('/in')
     }
-    console.log('2nd', user)
+    console.log('2nd', userLoggedIn)
   return (
     <Container>
       {errs ? errs.map((err, idx) => <Alert variant="danger" key={idx}><Alert.Heading>{err}</Alert.Heading></Alert>) : ''}  
