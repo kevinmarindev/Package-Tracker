@@ -16,15 +16,15 @@ function App() {
   console.log('app rerender')
   // const [user, setUser] = useState('')
   //------------------------------END STATE---------------------------------------//
-  const userLoggedIn = useRef('')
+  // const userLoggedIn = useRef('')
   
   const pullUserToAppCompo = (dataIn) => {
     console.log(dataIn)
-    userLoggedIn.current = dataIn
+    // userLoggedIn.current = dataIn
+    sessionStorage.setItem('user', dataIn)
     console.log(userLoggedIn)
   }
-  console.log(userLoggedIn)
-  // console.log(user)
+  
 
   return (
     <Router>
@@ -36,13 +36,13 @@ function App() {
           element={<Login />}
         />
         <Route path='/register'
-          element={<Register pullUserToAppCompo={pullUserToAppCompo} userLoggedIn={userLoggedIn}></Register>}
+          element={<Register pullUserToAppCompo={pullUserToAppCompo}></Register>}
         />
         <Route path='/in'
           element={
-            
-              <Display />
-            
+            <Auth sendTo='/'>
+              <Display></Display>
+            </Auth>
           }
         />
         <Route path='*' element={<h1>Hey there you need to be logged in to see this</h1>}></Route>
