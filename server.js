@@ -9,7 +9,8 @@ const flash = require('express-flash-2')
 const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const connectToDB = require('./config/database');
-const homeRoutes = require('./routes/home')
+const homeRoutes = require('./routes/home');
+const numsRoutes = require('./routes/numsRoutes')
 
 
 require('dotenv').config({path: './config/.env'})
@@ -54,6 +55,7 @@ app.use(passport.session())
 
 //Routes 
 app.use('/', homeRoutes)
+app.use('/numbers', numsRoutes)
 
 
 const port = process.env.PORT || 5000

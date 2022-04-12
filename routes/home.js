@@ -74,10 +74,10 @@ router.post('/register', (req, res, next) => {
 //-----------------------------SIGN IN ROUTE BELOW---------------------//
 
 router.post('/login', (req, res, next) => {
-    console.log(req.session)
+    console.log(req.session, req.user)
     const validationErrors = []
-    if (!validator.isEmail(req.body.email)) validationErrors.push({ msg: 'Please enter a valid email address.' })
-    if (validator.isEmpty(req.body.password)) validationErrors.push({ msg: 'Password cannot be blank.' })
+    if (!validator.isEmail(req.body.email)) validationErrors.push('Please enter a valid email address.')
+    if (validator.isEmpty(req.body.password)) validationErrors.push('Password cannot be blank.')
     
     console.log(validationErrors.length, validationErrors)
   
@@ -93,7 +93,8 @@ router.post('/login', (req, res, next) => {
       if (err) { return next(err) }
       if (!user) {
         console.log(info)
-        return res.send({'errors': 'Wrong username or password'})
+        validationErrors.push('Wrong username or password')
+        return res.send({'errors': validationErrors})
       }
       req.logIn(user, (err) => {
         if (err) { return next(err) }
@@ -103,11 +104,24 @@ router.post('/login', (req, res, next) => {
     }
   })
 
-//------------------------------GET USER LOGGED IN ----------------------------------
-router.post('/getuser', (req,res) =>{
-    console.log(req)
-    res.send('ok tried')
+//------------------------------LOG OUT ----------------------------------
+router.post('/logout', (req, res) =>{
+    req.logout()
+    req.session.destroy((err) => {
+      if (err) console.log('Error : Failed to destroy the session during logout.', err)
+      req.user = null
+      res.send('logged out')
+    })
 })
+
+
+
+
+
+// router.post('/getuser', (req,res) =>{
+//     console.log(req)
+//     res.send('ok tried')
+// })
 
 
 module.exports = router;
