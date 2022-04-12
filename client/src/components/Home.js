@@ -7,7 +7,7 @@ const Home = () => {
     
   return(
         <div style={imageStyle}>
-            <Header></Header>
+            {/* <Header></Header> */}
             <p style={text} className="h1">Track all your packages in one secure app.</p>
             <p style={text} className="h5">Get the latest updates, extimated delivery date and more</p>
         </div> 

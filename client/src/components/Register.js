@@ -1,5 +1,6 @@
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Row from 'react-bootstrap/Row'
 import Container from "react-bootstrap/Container";
 import Alert from 'react-bootstrap/Alert';
 import axios from 'axios';
@@ -7,20 +8,20 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 
-const Register = ({ pullUserToAppCompo }) => {
+const Register = ({ pullUserToApp }) => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [errs, setErrors] = useState('')
+    const [errs, setErrors] = useState([])
     // const [user, setUser] = useState('')
 
     const navigate = useNavigate()
-
+    let authenticated = JSON.parse(sessionStorage.getItem('user'))
     let user
 
     const registering = async (e) => {
-        console.log(username, email, password, confirmPassword)
+        if(authenticated) return setErrors(()=> ['There is an user logged in'])
         e.preventDefault()
         let res = await axios.post('/register', {
             username: username,
@@ -40,8 +41,8 @@ const Register = ({ pullUserToAppCompo }) => {
             // setUser((prev)=> res.data.user)
             user = res.data.user
             console.log(user)
-            pullUserToAppCompo(user)
-            // navigate('/in')
+            await pullUserToApp(user)
+            navigate('/in')
         }
 
         // if(user){
@@ -61,7 +62,7 @@ const Register = ({ pullUserToAppCompo }) => {
     }
     console.log('2nd', user)
   return (
-    <Container>
+    <Container >
       {errs ? errs.map((err, idx) => <Alert variant="danger" key={idx}><Alert.Heading>{err}</Alert.Heading></Alert>) : ''}  
       <Form className='mt-5 mx-5'>
         <Form.Group className="mb-3" controlId="formBasicUsername">
@@ -86,10 +87,11 @@ const Register = ({ pullUserToAppCompo }) => {
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control required type="password" placeholder="Password" name='confirmPassword' onChange={(e) => setConfirmPassword(e.target.value)}/>
         </Form.Group>
-
-        <Button onClick={registering} className="mt-5" variant="primary" type="submit" style={{ width:'20%', marginLeft:"40%", marginRight:'40%'}}>
-          Submit
-        </Button>
+        <Row className="mx-auto">
+            <Button onClick={registering} className="mt-5 mx-auto" variant="primary" type="submit" style={{width:"30%"}}>
+                Submit
+            </Button>
+        </Row>
       </Form>
       
     </Container>
@@ -98,16 +100,3 @@ const Register = ({ pullUserToAppCompo }) => {
 
 export default Register;
 
-// let res = await fetch('/register', {
-        //         method: 'POST',
-        //         headers: {'Content-Type': 'application/json'},
-        //         body: JSON.stringify({
-        //             "username": username,
-        //             "email": email,
-        //             "password": password,
-        //             "confirmPassword": confirmPassword
-        //       })
-        //     })
-
-            
-        // console.log(res, res.session, res.user)

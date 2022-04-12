@@ -1,22 +1,37 @@
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Nav'
 import Container from 'react-bootstrap/Container'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
+import axios from 'axios';
+
 
 
 const Header = () => {
+    const location = useLocation()
+    let path = location.pathname
+    let navigate = useNavigate()
+
+    const logOut = async (e) => {
+        if(path === '/in' || path === '/addnum') {
+        console.log('loggin out')
+        let res = await axios.post('/logout', {
+        },{withCredentials: true})
+        console.log(res)
+        sessionStorage.clear()
+        navigate('/')
+    }
+    }
     return (
         <Navbar bg="light" expand="md" >
             <Container fluid>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav style={ nav }>
-                        <Nav.Link>
-                            <Link style={shadow} to='/login'>Sign in</Link>
-                        </Nav.Link>
-                        <Nav.Link>
-                            <Link style={shadow} to='/register'>Register</Link>
-                        </Nav.Link>
+                        <Link style={shadow} className='my-1' to={path === '/in' ? '/addnum' : path === '/addnum' ? '/in' : '/login'}>{path === '/in' ? 'Add Tracking' : path === '/addnum' ? 'My Items' : 'Sign In'}
+                        </Link>
+                        <Link style={shadow} className='my-1' to={path === '/in' ? '/' : path === '/addnum' ? '/' : 'Register'} onClick={logOut}>
+                                {path === '/in' || path === '/addnum' ? 'Log Out' : 'Register'}
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
