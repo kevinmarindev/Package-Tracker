@@ -30,12 +30,14 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
         14 : "Recepient Refused"
     }
 
+    // console.log(carrier)
+
     const showOrNo = () =>{
         setDisplaying(prev => !prev)
         
     }
     const getDetails = async () =>{
-        if(displaying){
+        if(displaying && carrier != 'ups'){
             let res = await axios.post('/numbers/getsingletracking', {
                   carrier,
                   tracknum: number
@@ -43,6 +45,14 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
                 console.log(res)
                 setData((prev)=> res.data)
             }
+        else if(displaying){
+            let res = await axios.post('/numbers/getsingletrackingups', {
+                  carrier,
+                  tracknum: number
+                }, {withCredentials: true})
+                console.log(res)
+                setData((prev)=> res.data)
+        }
         }
 
 
@@ -56,7 +66,7 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
         reRender(number)
     }
 // className='bg-light border-primary'
-    console.log(displaying, data)
+    console.log(displaying, data.items)
     return (
         <Row className="my-3" >
             <Accordion>
@@ -73,9 +83,9 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
                             <Button variant="danger" size="sm" onClick={deleteOne}>Delete</Button>
                         </Container>
                         {data.items ? data["items"].map((item, idx)=> <Card className="my-2" border="secondary" key={idx}>
-                        <Card.Header>{item.order_status_description}</Card.Header>
+                        <Card.Header>{item.order_status_description} | {item.location}</Card.Header>
                         <Card.Body>
-                            <Card.Title>{item.location}</Card.Title>
+                            <Card.Title>{item.context}</Card.Title>
                             <Card.Text>{item.time}</Card.Text>
                         </Card.Body>
                         </Card>) : ''}
@@ -85,7 +95,7 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
         </Row>
     )
 }
-
+// item.context.replace(/.*\]/, '')
 const styleIt = {
     backgroundColor: 'rgba(15,10,85,0.2)'
  
