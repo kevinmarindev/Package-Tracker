@@ -5,22 +5,6 @@ const User = require('../models/User')
 const passport = require('passport')
 
 
-
-// router.get('/testing', (req, res) =>{
-//     res.status(200).send('tested successfully')
-// } )
-
-// router.post('/register', async (req,res) =>{
-//     console.log('here', req.body)
-    // const user = await new User({
-    //   username: req.body.username,
-    //   email: req.body.email,
-    //   password: req.body.password
-    // })
-    // user.save()
-    // res.status(200).send('all good')
-// })
-
 //--------------------------SINGUP ROUTE BELOW ----------------------------------------
 
 router.post('/register', (req, res, next) => {

@@ -46,18 +46,19 @@ const AddNumber = () => {
     
 
     return (
-        <Container>
-            <Form>
-                <Form.Select required aria-label="Select carrier" name="carrier" className='my-5' onBlur={(e) => carrier.current = e.currentTarget.value}>
+        <div style={imageStyle}>
+        <Container className="pt-5">
+            <Form className="pt-5">
+                <Form.Select required aria-label="Select carrier" name="carrier" className='mb-5 border-secondary' onBlur={(e) => carrier.current = e.currentTarget.value}>
                     <option value="usps" >USPS</option>
                     <option value="ups">UPS</option>
                     <option value="fedex">FEDEX</option>
                 </Form.Select>
                 <Form.Group className="my-5" controlId="trackingnum">
-                    <Form.Control required type="text" placeholder="Enter Tracking number" name='tracking' onChange={(e) => setTrackNum(e.target.value)}/>
+                    <Form.Control required type="text" className="border-secondary" placeholder="Enter Tracking number" name='tracking' onChange={(e) => setTrackNum(e.target.value)}/>
                 </Form.Group>
                 <Form.Group className="my-5" controlId="description">
-                    <Form.Control type="text" placeholder="Enter a description of item being tracked" maxLength='30' name='description' onChange={(e) => setDescription(e.target.value)}/>
+                    <Form.Control type="text" className="border-secondary" placeholder="Enter a description of item being tracked" maxLength='30' name='description' onChange={(e) => setDescription(e.target.value)}/>
                 </Form.Group>
                 <Row>
                     <Button variant="primary" type="submit" className='mx-auto mb-5' onClick={submitTrack} style={{width:'30%'}}>
@@ -68,8 +69,18 @@ const AddNumber = () => {
             {errs ? errs.map((err, idx) => <Alert variant="danger" key={idx}><Alert.Heading>{err}</Alert.Heading></Alert>) : ''}
             {succ ? (<Alert variant="success"><Alert.Heading>Item added successfully</Alert.Heading></Alert>) : ''}  
         </Container>
+        </div>
     
     )
+}
+
+const imageStyle = {
+    height: '100vh',
+    backgroundImage:  "URL(https://res.cloudinary.com/dpivoqpxh/image/upload/v1649997195/11_go1dog.jpg)",
+    backgroundSize:   'repeat',
+    backgroundPosition: 'left',
+    zIndex: '0',
+ 
 }
 
 export default AddNumber

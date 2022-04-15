@@ -55,16 +55,14 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
         console.log(res)
         reRender(number)
     }
-
+// className='bg-light border-primary'
     console.log(displaying, data)
     return (
         <Row className="my-3" >
             <Accordion>
-                <Accordion.Item eventKey={id} className='bg-light border-primary'>
-                    <Accordion.Header onMouseDown={showOrNo} onMouseUp={getDetails}>
-                        {description ? description : `${carrier.toUpperCase()} : ${number}`}
-                        {/* <FaTrash className="ms-5"/> */}
-                        {/* <Button variant="danger" size="sm">Delete</Button> */}
+                <Accordion.Item eventKey={id} className='bg-light border-secondary'>
+                    <Accordion.Header onMouseDown={showOrNo} onMouseUp={getDetails} >
+                        {description ? description.toUpperCase() : `${carrier.toUpperCase()} : ${number}`}
                     </Accordion.Header>
                     <Accordion.Body>
                         <Container fluid className="mb-4" className="text-success">
@@ -92,8 +90,8 @@ const styleIt = {
     backgroundColor: 'rgba(15,10,85,0.2)'
  
 }
-const shadow={
-    textShadow: '0 0 2px RGB(175 22 249)'
+const borderIt={
+    boxShadow: '0 0 2px RGB(175 22 249)'
 }
 
 export default IndividualItem

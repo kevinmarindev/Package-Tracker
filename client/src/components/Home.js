@@ -1,42 +1,27 @@
-import Header from "./Header"
-// import { useState } from 'react'
-
-
-
 const Home = () => {
     
   return(
         <div style={imageStyle}>
-            {/* <Header></Header> */}
             <p style={text} className="h1">Track all your packages in one secure app.</p>
-            <p style={text} className="h5">Get the latest updates, extimated delivery date and more</p>
+            <p style={text} className="h5">Get the latest updates, Package status and more</p>
         </div> 
   )
 };
 
 const imageStyle = {
     height: '100vh',
-    backgroundImage:  "URL('pattern.jpg')",
+    backgroundImage:  "URL(https://res.cloudinary.com/dpivoqpxh/image/upload/v1649997232/10_irqx1p.jpg)",
     backgroundSize:   'cover',
     backgroundPosition: 'left',
     zIndex: '0',
  
 }
 
-// const padding ={
-//     height: '100vh',
-//     paddingTop: "40vh",
-//     paddingBottom: "40vh",
-//     borderRadius: '8px',
-//     border: '4px solid black',
-//     margin: '3vh 6vh'
-// }
-
 const text = {
     margin: '0',
     padding: '15vh 20% 10vh 20%',
     zIndex: '1',
-    color: "white",
+    color: "Black",
     textAlign: 'center'
 }
 

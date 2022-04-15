@@ -44,39 +44,25 @@ const Register = ({ pullUserToApp }) => {
             await pullUserToApp(user)
             navigate('/in')
         }
-
-        // if(user){
-        //     console.log(user)
-
-        // }
-        // if(res.data.user){
-        //     console.log(user)
-        //     pullUser(res.data.user)
-        //     navigate('/in')
-        // }
-    // }
-    // if(user){
-    //     console.log(user)
-    //     pullUser(user)
-    //     navigate('/in')
     }
     console.log('2nd', user)
   return (
-    <Container >
+
+    <Container className="py-3 my-5">
       {errs ? errs.map((err, idx) => <Alert variant="danger" key={idx}><Alert.Heading>{err}</Alert.Heading></Alert>) : ''}  
       <Form className='mt-5 mx-5'>
         <Form.Group className="mb-3" controlId="formBasicUsername">
-          <Form.Label>Username</Form.Label>
+          <Form.Label className="fw-bold">Username</Form.Label>
           <Form.Control required required type="text" placeholder="Username" name='userName' onChange={(e) => setUsername(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="fw-bold">Email address</Form.Label>
           <Form.Control required type="email" placeholder="Enter email" name='email' onChange={(e) => setEmail(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="fw-bold">Password</Form.Label>
           <Form.Control required type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)}/>
           <Form.Text className="text-muted">
             For your protection passwords are stored encrypted.
@@ -84,11 +70,11 @@ const Register = ({ pullUserToApp }) => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword2">
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label className="fw-bold">Confirm Password</Form.Label>
           <Form.Control required type="password" placeholder="Password" name='confirmPassword' onChange={(e) => setConfirmPassword(e.target.value)}/>
         </Form.Group>
         <Row className="mx-auto">
-            <Button onClick={registering} className="mt-5 mx-auto" variant="primary" type="submit" style={{width:"30%"}}>
+            <Button onClick={registering} className="mt-5 mx-auto mb-3" variant="primary" type="submit" style={{width:"30%"}}>
                 Submit
             </Button>
         </Row>

@@ -6,7 +6,6 @@ import Alert from 'react-bootstrap/Alert';
 import axios from 'axios';
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FaRegIdBadge } from "react-icons/fa";
 
 
 
@@ -40,23 +39,20 @@ const Login = ({ pullUserToApp }) => {
         }
     }
     return (
-    <Container className="my-5 py-5 ">
+    <Container className="my-5 py-5" >
       {errs ? errs.map((err, idx) => <Alert variant="danger" key={idx}><Alert.Heading>{err}</Alert.Heading></Alert>) : ''}
       <Form className='mt-5 mx-5'>
         
         <Form.Group className="mb-5" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
+          <Form.Label className="fw-bold">Email address</Form.Label>
           <Form.Control required type="email" placeholder="Enter email" name='email' onChange={(e) => setEmail(e.target.value)}/>
         </Form.Group>
 
         <Form.Group className="mb-5" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
+          <Form.Label className="fw-bold">Password</Form.Label>
           <Form.Control required type="password" placeholder="Password" name="password" onChange={(e) => setPassword(e.target.value)}/>
         </Form.Group>
 
-        {/* <Button onClick={singIn} className="mt-5" variant="primary" type="submit" style={{ width:'20%', marginLeft:"40%", marginRight:'40%'}}>
-          Submit
-        </Button> */}
         <Row className="mx-auto">
             <Button onClick={singIn} className="mt-5 mx-auto" variant="primary" type="submit" style={{ width:'30%'}}>
             Submit
@@ -68,8 +64,13 @@ const Login = ({ pullUserToApp }) => {
     );
 }
 
-// const styleIt = {
-//     backgroundColor: "rgba(186,21,249,0.05)"
-// }
+const imageStyle = {
+    height: '100vh',
+    backgroundImage:  "URL('secondImg.jpg')",
+    backgroundSize:   'cover',
+    backgroundPosition: 'left',
+    zIndex: '0',
+ 
+}
 
 export default Login

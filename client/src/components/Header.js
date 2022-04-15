@@ -22,14 +22,14 @@ const Header = () => {
     }
     }
     return (
-        <Navbar bg="light" expand="md" >
+        <Navbar  bg='dark' expand="md" className='border-bottom border-secondary text-light'>
             <Container fluid>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav style={ nav }>
-                        <Link style={shadow} className='my-1' to={path === '/in' ? '/addnum' : path === '/addnum' ? '/in' : '/login'}>{path === '/in' ? 'Add Tracking' : path === '/addnum' ? 'My Items' : 'Sign In'}
+                        <Link style={shadow}className='my-1 text-light' to={path === '/in' ? '/addnum' : path === '/addnum' ? '/in' : '/login'}>{path === '/in' ? 'Add Tracking' : path === '/addnum' ? 'My Items' : 'Sign In'}
                         </Link>
-                        <Link style={shadow} className='my-1' to={path === '/in' ? '/' : path === '/addnum' ? '/' : 'Register'} onClick={logOut}>
+                        <Link style={shadow}className='my-1 text-light' to={path === '/in' ? '/' : path === '/addnum' ? '/' : 'Register'} onClick={logOut}>
                                 {path === '/in' || path === '/addnum' ? 'Log Out' : 'Register'}
                         </Link>
                     </Nav>
@@ -50,7 +50,7 @@ const nav = {
 }
 
 const shadow={
-    textShadow: '0 0 2px RGB(175 22 249)'
+    textDecoration: 'none'
 }
 
 
