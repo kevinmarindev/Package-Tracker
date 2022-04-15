@@ -24,7 +24,7 @@ const Header = () => {
     return (
         <Navbar  bg='dark' expand="md" className='border-bottom border-secondary text-light'>
             <Container fluid>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav" className='border-secondary' />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav style={ nav }>
                         <Link style={shadow}className='my-1 text-light' to={path === '/in' ? '/addnum' : path === '/addnum' ? '/in' : '/login'}>{path === '/in' ? 'Add Tracking' : path === '/addnum' ? 'My Items' : 'Sign In'}

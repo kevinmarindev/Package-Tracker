@@ -10,10 +10,15 @@ const Home = () => {
 
 const imageStyle = {
     height: '100vh',
-    backgroundImage:  "URL(https://res.cloudinary.com/dpivoqpxh/image/upload/v1649997232/10_irqx1p.jpg)",
+    backgroundImage:  "URL(https://res.cloudinary.com/dpivoqpxh/image/upload/v1650062779/pexels-tima-miroshnichenko-6169588_1_avwmmy.jpg)",
     backgroundSize:   'cover',
-    backgroundPosition: 'left',
+    backgroundPosition: 'center',
     zIndex: '0',
+    // height: '100vh',
+    // backgroundImage:  "URL(https://res.cloudinary.com/dpivoqpxh/image/upload/v1650061448/icon_gmclb2.png)",
+    // backgroundSize: 'repeat',
+    // backgroundPosition: 'left',
+    // zIndex: '0',
  
 }
 
@@ -21,7 +26,7 @@ const text = {
     margin: '0',
     padding: '15vh 20% 10vh 20%',
     zIndex: '1',
-    color: "Black",
+    color: "white",
     textAlign: 'center'
 }
 
