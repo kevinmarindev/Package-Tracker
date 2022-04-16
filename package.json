@@ -31,6 +31,7 @@
     "morgan": "^1.10.0",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
+    "translate": "^1.4.1",
     "validator": "^13.7.0"
   },
   "devDependencies": {
