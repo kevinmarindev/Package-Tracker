@@ -10,7 +10,7 @@ const Home = () => {
 
 const imageStyle = {
     height: '100vh',
-    backgroundImage:  "URL(https://res.cloudinary.com/dpivoqpxh/image/upload/v1650062779/pexels-tima-miroshnichenko-6169588_1_avwmmy.jpg)",
+    backgroundImage:  "URL(https://res.cloudinary.com/dpivoqpxh/image/upload/v1650505815/pexels-tima-miroshnichenko-6169588_1_fukaev.jpg)",
     backgroundSize:   'cover',
     backgroundPosition: 'center',
     zIndex: '0',
