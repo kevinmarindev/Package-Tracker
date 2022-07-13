@@ -6,6 +6,7 @@ import Display from './components/Display'
 import Header from './components/Header'
 import AddNumber from './components/AddNumber'
 import Auth from './Auth'
+import Auth2 from './Auth2'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 
 
@@ -20,22 +21,41 @@ function App() {
     
   }
 
-  
+ 
   
 
   return (
     <Router>
       <Header></Header>
       <Routes>
-        <Route path='/'
-          element={<Home />}
-        />
-        <Route path='/login'
-          element={<Login pullUserToApp={pullUserToApp}/>}
-        />
-        <Route path='/register'
-          element={<Register pullUserToApp={pullUserToApp}/>}
-        />
+       
+        
+         
+          <Route path='/'
+            element={
+            <Auth2>
+              <Home />
+             </Auth2>
+            }
+          />
+          <Route path='/login'
+            element={
+            <Auth2>
+              <Login pullUserToApp={pullUserToApp}/>
+            </Auth2>
+          }
+          />
+          <Route path='/register'
+            element={
+              <Auth2>
+                <Register pullUserToApp={pullUserToApp}/>
+              </Auth2>  
+          }
+          />
+         
+
+       
+
         <Route path='/in'
           element={
             <Auth sendTo='/'>

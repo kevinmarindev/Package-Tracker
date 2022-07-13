@@ -27,11 +27,11 @@ connectToDB()
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
+
 // app.use(cors({
 //     origin: 'http://localhost:3000',
 //     credentials: true
 // }))
-
 
 
 // Sessions
@@ -68,7 +68,8 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 6000
+// const port =  process.env.PORT || 6000 
 app.listen( port, () => console.log(`server on port ${port}`))
 
 

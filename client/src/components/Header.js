@@ -29,7 +29,7 @@ const Header = () => {
                     <Nav style={ nav }>
                         <Link style={shadow}className='my-1 text-light' to={path === '/in' ? '/addnum' : path === '/addnum' ? '/in' : '/login'}>{path === '/in' ? 'Add Tracking' : path === '/addnum' ? 'My Items' : 'Sign In'}
                         </Link>
-                        <Link style={shadow}className='my-1 text-light' to={path === '/in' ? '/' : path === '/addnum' ? '/' : 'Register'} onClick={logOut}>
+                        <Link style={shadow} className='my-1 text-light' to={path === '/in' ? '/' : path === '/addnum' ? '/' : '/register'} onClick={logOut}>
                                 {path === '/in' || path === '/addnum' ? 'Log Out' : 'Register'}
                         </Link>
                     </Nav>

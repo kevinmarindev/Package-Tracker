@@ -65,7 +65,7 @@ router.post('/posttracking', async (req, res)=>{
 
 router.get('/gettrackings', async (req, res)=>{
     console.log('in this bee')
-    console.log(req.user.username)
+    console.log(req.user)
     
     const numbers = await TrackSchema.find({ userName: req.user.username})
     console.log(numbers)

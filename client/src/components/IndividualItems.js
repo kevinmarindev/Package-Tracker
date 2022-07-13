@@ -5,8 +5,7 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios'
-import { FaTrash } from 'react-icons/fa'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 
@@ -75,7 +74,7 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
                         {description ? description.toUpperCase() : `${carrier.toUpperCase()} : ${number}`}
                     </Accordion.Header>
                     <Accordion.Body>
-                        <Container fluid className="mb-4" className="text-success">
+                        <Container fluid className="text-success mb-4">
                             {`${carrier.toUpperCase()}: ${number}`}
                             <br/>
                             Package Status: {statusCodes[data.order_status_code]}
@@ -96,12 +95,6 @@ const IndividualItem = ({ carrier, number, id, description, reRender }) => {
     )
 }
 // item.context.replace(/.*\]/, '')
-const styleIt = {
-    backgroundColor: 'rgba(15,10,85,0.2)'
- 
-}
-const borderIt={
-    boxShadow: '0 0 2px RGB(175 22 249)'
-}
+
 
 export default IndividualItem
