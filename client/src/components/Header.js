@@ -18,7 +18,8 @@ const Header = () => {
         },{withCredentials: true})
         console.log(res)
         sessionStorage.clear()
-        navigate('/')
+        console.log('logging out')
+        // navigate('/')
     }
     }
     return (
@@ -27,11 +28,14 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className='border-secondary' />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav style={ nav }>
-                        <Link style={shadow}className='my-1 text-light' to={path === '/in' ? '/addnum' : path === '/addnum' ? '/in' : '/login'}>{path === '/in' ? 'Add Tracking' : path === '/addnum' ? 'My Items' : 'Sign In'}
+
+                        <Link style={shadow} className='my-1 text-light' to={path === '/in' ? '/addnum' : path === '/addnum' ? '/in' : '/login'}>{path === '/in' ? 'Add Tracking' : path === '/addnum' ? 'My Items' : 'Sign In'}
                         </Link>
-                        <Link style={shadow} className='my-1 text-light' to={path === '/in' ? '/' : path === '/addnum' ? '/' : '/register'} onClick={logOut}>
+
+                        <Link style={shadow} className='my-1 text-light' to={path === '/in' ? '' : path === '/addnum' ? '' : '/register'} onClick={logOut}>
                                 {path === '/in' || path === '/addnum' ? 'Log Out' : 'Register'}
                         </Link>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>

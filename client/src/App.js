@@ -33,9 +33,9 @@ function App() {
          
           <Route path='/'
             element={
-            <Auth2>
+         
               <Home />
-             </Auth2>
+         
             }
           />
           <Route path='/login'
