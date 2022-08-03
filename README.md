@@ -1,5 +1,5 @@
 # Package-Tracker
-Full Stack React Parcel Tracking app. This app allows you to store all your tracking numbers and track them all in one place regardless of carrier. Supports USPS, UPS and FEDEX
+Full Stack React Parcel Tracking app. This app allows you to store tracking numbers and track packages from USPS, UPS and Fedex all in one place. 
 
 [Live Link](https://package-tracker-us.herokuapp.com/)
 
